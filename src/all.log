@@ -1,0 +1,1184 @@
+[2017-10-14 09:05:13,998] [INFO] basehttp : "GET / HTTP/1.1" 200 1471
+[2017-10-14 09:05:13,998] [INFO] basehttp : "GET / HTTP/1.1" 200 1471
+[2017-10-14 09:05:14,711] [WARNING] basehttp : "GET /favicon.ico HTTP/1.1" 404 3505
+[2017-10-14 09:05:14,711] [WARNING] basehttp : "GET /favicon.ico HTTP/1.1" 404 3505
+[2017-10-14 09:05:14,720] [WARNING] basehttp : "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 3568
+[2017-10-14 09:05:14,720] [WARNING] basehttp : "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 3568
+[2017-10-14 09:05:14,726] [WARNING] basehttp : "GET /apple-touch-icon.png HTTP/1.1" 404 3532
+[2017-10-14 09:05:14,726] [WARNING] basehttp : "GET /apple-touch-icon.png HTTP/1.1" 404 3532
+[2017-10-14 09:05:19,995] [ERROR] exception : Internal Server Error: /login_action/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'guest.auth_user' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/apple/autoTest/workspace/eguest/src/sign/views.py", line 28, in login_action
+    user = auth.authenticate(username = username, password = password)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/__init__.py", line 70, in authenticate
+    user = _authenticate_with_backend(backend, backend_path, request, credentials)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/__init__.py", line 115, in _authenticate_with_backend
+    return backend.authenticate(*args, **credentials)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/backends.py", line 18, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/base_user.py", line 48, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 374, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 232, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 886, in execute_sql
+    raise original_exception
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 876, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.ProgrammingError: (1146, "Table 'guest.auth_user' doesn't exist")
+[2017-10-14 09:05:19,995] [ERROR] exception : Internal Server Error: /login_action/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'guest.auth_user' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/apple/autoTest/workspace/eguest/src/sign/views.py", line 28, in login_action
+    user = auth.authenticate(username = username, password = password)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/__init__.py", line 70, in authenticate
+    user = _authenticate_with_backend(backend, backend_path, request, credentials)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/__init__.py", line 115, in _authenticate_with_backend
+    return backend.authenticate(*args, **credentials)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/backends.py", line 18, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/base_user.py", line 48, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 374, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 232, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 886, in execute_sql
+    raise original_exception
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 876, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.ProgrammingError: (1146, "Table 'guest.auth_user' doesn't exist")
+[2017-10-14 09:05:20,164] [ERROR] basehttp : "POST /login_action/ HTTP/1.1" 500 212261
+[2017-10-14 09:05:20,164] [ERROR] basehttp : "POST /login_action/ HTTP/1.1" 500 212261
+[2017-10-14 09:16:07,015] [INFO] basehttp : "GET / HTTP/1.1" 200 1471
+[2017-10-14 09:16:07,015] [INFO] basehttp : "GET / HTTP/1.1" 200 1471
+[2017-10-14 09:16:07,523] [WARNING] basehttp : "GET /favicon.ico HTTP/1.1" 404 3505
+[2017-10-14 09:16:07,523] [WARNING] basehttp : "GET /favicon.ico HTTP/1.1" 404 3505
+[2017-10-14 09:16:10,422] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 200 1498
+[2017-10-14 09:16:10,422] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 200 1498
+[2017-10-14 09:16:19,724] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 302 0
+[2017-10-14 09:16:19,724] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 302 0
+[2017-10-14 09:16:19,741] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 200 3120
+[2017-10-14 09:16:19,741] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 200 3120
+[2017-10-14 09:16:33,688] [INFO] basehttp : "GET /admin/ HTTP/1.1" 200 3789
+[2017-10-14 09:16:33,688] [INFO] basehttp : "GET /admin/ HTTP/1.1" 200 3789
+[2017-10-14 09:16:33,713] [INFO] basehttp : "GET /static/admin/css/dashboard.css HTTP/1.1" 200 412
+[2017-10-14 09:16:33,713] [INFO] basehttp : "GET /static/admin/css/dashboard.css HTTP/1.1" 200 412
+[2017-10-14 09:16:33,714] [INFO] basehttp : "GET /static/admin/css/base.css HTTP/1.1" 200 16066
+[2017-10-14 09:16:33,714] [INFO] basehttp : "GET /static/admin/css/base.css HTTP/1.1" 200 16066
+[2017-10-14 09:16:33,758] [INFO] basehttp : "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[2017-10-14 09:16:33,758] [INFO] basehttp : "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[2017-10-14 09:16:33,845] [INFO] basehttp : "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2017-10-14 09:16:33,845] [INFO] basehttp : "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2017-10-14 09:16:33,845] [INFO] basehttp : "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2017-10-14 09:16:33,845] [INFO] basehttp : "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2017-10-14 09:16:33,845] [INFO] basehttp : "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2017-10-14 09:16:33,845] [INFO] basehttp : "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2017-10-14 09:16:33,846] [INFO] basehttp : "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2017-10-14 09:16:33,846] [INFO] basehttp : "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2017-10-14 09:16:33,849] [INFO] basehttp : "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2017-10-14 09:16:33,849] [INFO] basehttp : "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2017-10-14 09:16:38,637] [INFO] basehttp : "GET /admin/sign/event/add/ HTTP/1.1" 200 5974
+[2017-10-14 09:16:38,637] [INFO] basehttp : "GET /admin/sign/event/add/ HTTP/1.1" 200 5974
+[2017-10-14 09:16:38,678] [INFO] basehttp : "GET /static/admin/css/forms.css HTTP/1.1" 200 8173
+[2017-10-14 09:16:38,678] [INFO] basehttp : "GET /static/admin/css/forms.css HTTP/1.1" 200 8173
+[2017-10-14 09:16:38,686] [INFO] basehttp : "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+[2017-10-14 09:16:38,686] [INFO] basehttp : "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+[2017-10-14 09:16:38,690] [INFO] basehttp : "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6591
+[2017-10-14 09:16:38,690] [INFO] basehttp : "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6591
+[2017-10-14 09:16:38,691] [INFO] basehttp : "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+[2017-10-14 09:16:38,692] [INFO] basehttp : "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+[2017-10-14 09:16:38,691] [INFO] basehttp : "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+[2017-10-14 09:16:38,699] [INFO] basehttp : "GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+[2017-10-14 09:16:38,692] [INFO] basehttp : "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+[2017-10-14 09:16:38,701] [INFO] basehttp : "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+[2017-10-14 09:16:38,699] [INFO] basehttp : "GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+[2017-10-14 09:16:38,701] [INFO] basehttp : "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+[2017-10-14 09:16:38,714] [INFO] basehttp : "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[2017-10-14 09:16:38,714] [INFO] basehttp : "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+[2017-10-14 09:16:38,714] [INFO] basehttp : "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+[2017-10-14 09:16:38,714] [INFO] basehttp : "GET /static/admin/js/calendar.js HTTP/1.1" 200 7790
+[2017-10-14 09:16:38,714] [INFO] basehttp : "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[2017-10-14 09:16:38,714] [INFO] basehttp : "GET /static/admin/js/calendar.js HTTP/1.1" 200 7790
+[2017-10-14 09:16:38,717] [INFO] basehttp : "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20529
+[2017-10-14 09:16:38,715] [INFO] basehttp : "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+[2017-10-14 09:16:38,717] [INFO] basehttp : "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20529
+[2017-10-14 09:16:38,721] [INFO] basehttp : "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+[2017-10-14 09:16:38,721] [INFO] basehttp : "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+[2017-10-14 09:16:38,715] [INFO] basehttp : "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+[2017-10-14 09:16:38,723] [INFO] basehttp : "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[2017-10-14 09:16:38,723] [INFO] basehttp : "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[2017-10-14 09:16:38,724] [INFO] basehttp : "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[2017-10-14 09:16:38,724] [INFO] basehttp : "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[2017-10-14 09:16:38,806] [INFO] basehttp : "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[2017-10-14 09:16:38,806] [INFO] basehttp : "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[2017-10-14 09:16:38,808] [INFO] basehttp : "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[2017-10-14 09:16:38,808] [INFO] basehttp : "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[2017-10-14 09:17:11,105] [ERROR] exception : Internal Server Error: /admin/sign/event/add/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect string value: '\\xE9\\x82\\xAE\\xE7\\xAE\\xB1...' for column 'name' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 551, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 224, in inner
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1508, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1408, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1448, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 979, in save_model
+    obj.save()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 807, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 837, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 923, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 962, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 1076, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1366, "Incorrect string value: '\\xE9\\x82\\xAE\\xE7\\xAE\\xB1...' for column 'name' at row 1")
+[2017-10-14 09:17:11,105] [ERROR] exception : Internal Server Error: /admin/sign/event/add/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect string value: '\\xE9\\x82\\xAE\\xE7\\xAE\\xB1...' for column 'name' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 551, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 224, in inner
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1508, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1408, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1448, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 979, in save_model
+    obj.save()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 807, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 837, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 923, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 962, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 1076, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1366, "Incorrect string value: '\\xE9\\x82\\xAE\\xE7\\xAE\\xB1...' for column 'name' at row 1")
+[2017-10-14 09:17:11,259] [ERROR] basehttp : "POST /admin/sign/event/add/ HTTP/1.1" 500 248821
+[2017-10-14 09:17:11,259] [ERROR] basehttp : "POST /admin/sign/event/add/ HTTP/1.1" 500 248821
+[2017-10-14 09:19:37,153] [ERROR] exception : Internal Server Error: /admin/sign/event/add/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect string value: '\\xE9\\x82\\xAE\\xE7\\xAE\\xB1...' for column 'name' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 551, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 224, in inner
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1508, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1408, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1448, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 979, in save_model
+    obj.save()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 807, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 837, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 923, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 962, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 1076, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1366, "Incorrect string value: '\\xE9\\x82\\xAE\\xE7\\xAE\\xB1...' for column 'name' at row 1")
+[2017-10-14 09:19:37,153] [ERROR] exception : Internal Server Error: /admin/sign/event/add/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect string value: '\\xE9\\x82\\xAE\\xE7\\xAE\\xB1...' for column 'name' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 551, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 224, in inner
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1508, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1408, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1448, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 979, in save_model
+    obj.save()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 807, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 837, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 923, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 962, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 1076, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1366, "Incorrect string value: '\\xE9\\x82\\xAE\\xE7\\xAE\\xB1...' for column 'name' at row 1")
+[2017-10-14 09:19:37,310] [ERROR] basehttp : "POST /admin/sign/event/add/ HTTP/1.1" 500 248821
+[2017-10-14 09:19:37,310] [ERROR] basehttp : "POST /admin/sign/event/add/ HTTP/1.1" 500 248821
+[2017-10-14 09:19:43,493] [INFO] basehttp : "GET /admin/sign/event/add/ HTTP/1.1" 200 5974
+[2017-10-14 09:19:43,493] [INFO] basehttp : "GET /admin/sign/event/add/ HTTP/1.1" 200 5974
+[2017-10-14 09:19:57,725] [INFO] basehttp : "POST /admin/sign/event/add/ HTTP/1.1" 302 0
+[2017-10-14 09:19:57,725] [INFO] basehttp : "POST /admin/sign/event/add/ HTTP/1.1" 302 0
+[2017-10-14 09:19:57,782] [INFO] basehttp : "GET /admin/sign/event/ HTTP/1.1" 200 5651
+[2017-10-14 09:19:57,782] [INFO] basehttp : "GET /admin/sign/event/ HTTP/1.1" 200 5651
+[2017-10-14 09:19:57,822] [INFO] basehttp : "GET /static/admin/css/changelists.css HTTP/1.1" 200 6170
+[2017-10-14 09:19:57,822] [INFO] basehttp : "GET /static/admin/css/changelists.css HTTP/1.1" 200 6170
+[2017-10-14 09:19:57,830] [INFO] basehttp : "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[2017-10-14 09:19:57,830] [INFO] basehttp : "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[2017-10-14 09:19:57,839] [INFO] basehttp : "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2017-10-14 09:19:57,839] [INFO] basehttp : "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2017-10-14 09:19:57,840] [INFO] basehttp : "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[2017-10-14 09:19:57,840] [INFO] basehttp : "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[2017-10-14 09:19:57,889] [INFO] basehttp : "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2017-10-14 09:19:57,889] [INFO] basehttp : "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2017-10-14 09:20:16,507] [INFO] basehttp : "GET /admin/sign/event/add/ HTTP/1.1" 200 5974
+[2017-10-14 09:20:16,507] [INFO] basehttp : "GET /admin/sign/event/add/ HTTP/1.1" 200 5974
+[2017-10-14 09:20:16,551] [INFO] basehttp : "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[2017-10-14 09:20:16,551] [INFO] basehttp : "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[2017-10-14 09:20:36,933] [ERROR] exception : Internal Server Error: /admin/sign/event/add/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect string value: '\\xE4\\xB8\\xAD\\xE6\\x96\\x87' for column 'name' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 551, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 224, in inner
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1508, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1408, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1448, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 979, in save_model
+    obj.save()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 807, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 837, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 923, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 962, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 1076, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1366, "Incorrect string value: '\\xE4\\xB8\\xAD\\xE6\\x96\\x87' for column 'name' at row 1")
+[2017-10-14 09:20:36,933] [ERROR] exception : Internal Server Error: /admin/sign/event/add/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect string value: '\\xE4\\xB8\\xAD\\xE6\\x96\\x87' for column 'name' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 551, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 224, in inner
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1508, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1408, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1448, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 979, in save_model
+    obj.save()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 807, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 837, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 923, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 962, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 1076, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1366, "Incorrect string value: '\\xE4\\xB8\\xAD\\xE6\\x96\\x87' for column 'name' at row 1")
+[2017-10-14 09:20:37,058] [ERROR] basehttp : "POST /admin/sign/event/add/ HTTP/1.1" 500 248406
+[2017-10-14 09:20:37,058] [ERROR] basehttp : "POST /admin/sign/event/add/ HTTP/1.1" 500 248406
+[2017-10-14 23:00:31,975] [INFO] basehttp : "GET / HTTP/1.1" 200 1471
+[2017-10-14 23:00:31,975] [INFO] basehttp : "GET / HTTP/1.1" 200 1471
+[2017-10-14 23:00:32,466] [WARNING] basehttp : "GET /favicon.ico HTTP/1.1" 404 3505
+[2017-10-14 23:00:32,466] [WARNING] basehttp : "GET /favicon.ico HTTP/1.1" 404 3505
+[2017-10-14 23:00:40,322] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 302 0
+[2017-10-14 23:00:40,322] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 302 0
+[2017-10-14 23:00:40,341] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 200 3530
+[2017-10-14 23:00:40,341] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 200 3530
+[2017-10-14 23:00:57,599] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 200 3530
+[2017-10-14 23:00:57,599] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 200 3530
+[2017-10-14 23:01:02,955] [INFO] basehttp : "GET /admin/ HTTP/1.1" 200 4104
+[2017-10-14 23:01:02,955] [INFO] basehttp : "GET /admin/ HTTP/1.1" 200 4104
+[2017-10-14 23:01:02,975] [INFO] basehttp : "GET /static/admin/css/base.css HTTP/1.1" 200 16066
+[2017-10-14 23:01:02,975] [INFO] basehttp : "GET /static/admin/css/base.css HTTP/1.1" 200 16066
+[2017-10-14 23:01:02,975] [INFO] basehttp : "GET /static/admin/css/dashboard.css HTTP/1.1" 200 412
+[2017-10-14 23:01:02,975] [INFO] basehttp : "GET /static/admin/css/dashboard.css HTTP/1.1" 200 412
+[2017-10-14 23:01:02,989] [INFO] basehttp : "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[2017-10-14 23:01:02,989] [INFO] basehttp : "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[2017-10-14 23:01:03,005] [INFO] basehttp : "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2017-10-14 23:01:03,005] [INFO] basehttp : "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2017-10-14 23:01:03,014] [INFO] basehttp : "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2017-10-14 23:01:03,014] [INFO] basehttp : "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2017-10-14 23:01:03,016] [INFO] basehttp : "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2017-10-14 23:01:03,016] [INFO] basehttp : "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2017-10-14 23:01:03,017] [INFO] basehttp : "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2017-10-14 23:01:03,017] [INFO] basehttp : "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2017-10-14 23:01:03,018] [INFO] basehttp : "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2017-10-14 23:01:03,018] [INFO] basehttp : "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2017-10-14 23:01:05,608] [INFO] basehttp : "GET /admin/sign/event/add/ HTTP/1.1" 200 5974
+[2017-10-14 23:01:05,608] [INFO] basehttp : "GET /admin/sign/event/add/ HTTP/1.1" 200 5974
+[2017-10-14 23:01:05,646] [INFO] basehttp : "GET /static/admin/css/forms.css HTTP/1.1" 200 8173
+[2017-10-14 23:01:05,646] [INFO] basehttp : "GET /static/admin/css/forms.css HTTP/1.1" 200 8173
+[2017-10-14 23:01:05,654] [INFO] basehttp : "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+[2017-10-14 23:01:05,654] [INFO] basehttp : "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+[2017-10-14 23:01:05,659] [INFO] basehttp : "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+[2017-10-14 23:01:05,659] [INFO] basehttp : "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+[2017-10-14 23:01:05,665] [INFO] basehttp : "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6591
+[2017-10-14 23:01:05,665] [INFO] basehttp : "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6591
+[2017-10-14 23:01:05,669] [INFO] basehttp : "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+[2017-10-14 23:01:05,669] [INFO] basehttp : "GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+[2017-10-14 23:01:05,669] [INFO] basehttp : "GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+[2017-10-14 23:01:05,669] [INFO] basehttp : "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+[2017-10-14 23:01:05,670] [INFO] basehttp : "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+[2017-10-14 23:01:05,670] [INFO] basehttp : "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+[2017-10-14 23:01:05,676] [INFO] basehttp : "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+[2017-10-14 23:01:05,676] [INFO] basehttp : "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+[2017-10-14 23:01:05,682] [INFO] basehttp : "GET /static/admin/js/calendar.js HTTP/1.1" 200 7790
+[2017-10-14 23:01:05,682] [INFO] basehttp : "GET /static/admin/js/calendar.js HTTP/1.1" 200 7790
+[2017-10-14 23:01:05,686] [INFO] basehttp : "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[2017-10-14 23:01:05,686] [INFO] basehttp : "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[2017-10-14 23:01:05,688] [INFO] basehttp : "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+[2017-10-14 23:01:05,688] [INFO] basehttp : "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+[2017-10-14 23:01:05,689] [INFO] basehttp : "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20529
+[2017-10-14 23:01:05,689] [INFO] basehttp : "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20529
+[2017-10-14 23:01:05,690] [INFO] basehttp : "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+[2017-10-14 23:01:05,690] [INFO] basehttp : "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+[2017-10-14 23:01:05,691] [INFO] basehttp : "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[2017-10-14 23:01:05,691] [INFO] basehttp : "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[2017-10-14 23:01:05,692] [INFO] basehttp : "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[2017-10-14 23:01:05,692] [INFO] basehttp : "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[2017-10-14 23:01:05,780] [INFO] basehttp : "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[2017-10-14 23:01:05,780] [INFO] basehttp : "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[2017-10-14 23:01:05,784] [INFO] basehttp : "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[2017-10-14 23:01:05,784] [INFO] basehttp : "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[2017-10-14 23:01:39,906] [ERROR] exception : Internal Server Error: /admin/sign/event/add/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect string value: '\\xE9\\x82\\xAE\\xE7\\xAE\\xB1...' for column 'name' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 551, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 224, in inner
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1508, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1408, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1448, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 979, in save_model
+    obj.save()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 807, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 837, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 923, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 962, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 1076, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1366, "Incorrect string value: '\\xE9\\x82\\xAE\\xE7\\xAE\\xB1...' for column 'name' at row 1")
+[2017-10-14 23:01:39,906] [ERROR] exception : Internal Server Error: /admin/sign/event/add/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1366, "Incorrect string value: '\\xE9\\x82\\xAE\\xE7\\xAE\\xB1...' for column 'name' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 551, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 224, in inner
+    return view(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1508, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1408, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1448, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 979, in save_model
+    obj.save()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 807, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 837, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 923, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 962, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 1076, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.6/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.6/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1366, "Incorrect string value: '\\xE9\\x82\\xAE\\xE7\\xAE\\xB1...' for column 'name' at row 1")
+[2017-10-14 23:01:40,059] [ERROR] basehttp : "POST /admin/sign/event/add/ HTTP/1.1" 500 248968
+[2017-10-14 23:01:40,059] [ERROR] basehttp : "POST /admin/sign/event/add/ HTTP/1.1" 500 248968
+[2017-10-14 23:41:23,836] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 302 0
+[2017-10-14 23:41:23,836] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 302 0
+[2017-10-14 23:41:23,842] [INFO] basehttp : "GET /accounts/login/?next=/event_manage/ HTTP/1.1" 200 1471
+[2017-10-14 23:41:23,842] [INFO] basehttp : "GET /accounts/login/?next=/event_manage/ HTTP/1.1" 200 1471
+[2017-10-14 23:41:26,301] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 302 0
+[2017-10-14 23:41:26,301] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 302 0
+[2017-10-14 23:41:26,317] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 200 3120
+[2017-10-14 23:41:26,317] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 200 3120
+[2017-10-14 23:41:43,082] [INFO] basehttp : "GET /admin/ HTTP/1.1" 200 3789
+[2017-10-14 23:41:43,082] [INFO] basehttp : "GET /admin/ HTTP/1.1" 200 3789
+[2017-10-14 23:41:45,943] [INFO] basehttp : "GET /admin/sign/event/add/ HTTP/1.1" 200 5974
+[2017-10-14 23:41:45,943] [INFO] basehttp : "GET /admin/sign/event/add/ HTTP/1.1" 200 5974
+[2017-10-14 23:41:46,009] [INFO] basehttp : "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[2017-10-14 23:41:46,009] [INFO] basehttp : "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[2017-10-14 23:42:05,045] [INFO] basehttp : "POST /admin/sign/event/add/ HTTP/1.1" 302 0
+[2017-10-14 23:42:05,045] [INFO] basehttp : "POST /admin/sign/event/add/ HTTP/1.1" 302 0
+[2017-10-14 23:42:05,097] [INFO] basehttp : "GET /admin/sign/event/ HTTP/1.1" 200 5650
+[2017-10-14 23:42:05,097] [INFO] basehttp : "GET /admin/sign/event/ HTTP/1.1" 200 5650
+[2017-10-14 23:42:05,135] [INFO] basehttp : "GET /static/admin/css/changelists.css HTTP/1.1" 200 6170
+[2017-10-14 23:42:05,135] [INFO] basehttp : "GET /static/admin/css/changelists.css HTTP/1.1" 200 6170
+[2017-10-14 23:42:05,149] [INFO] basehttp : "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[2017-10-14 23:42:05,149] [INFO] basehttp : "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[2017-10-14 23:42:05,168] [INFO] basehttp : "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2017-10-14 23:42:05,168] [INFO] basehttp : "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2017-10-14 23:42:05,173] [INFO] basehttp : "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[2017-10-14 23:42:05,173] [INFO] basehttp : "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[2017-10-14 23:42:05,239] [INFO] basehttp : "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2017-10-14 23:42:05,239] [INFO] basehttp : "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2018-04-03 06:40:01,034] [INFO] basehttp : "GET / HTTP/1.1" 200 1471
+[2018-04-03 06:40:01,034] [INFO] basehttp : "GET / HTTP/1.1" 200 1471
+[2018-04-03 06:40:01,422] [WARNING] basehttp : "GET /favicon.ico HTTP/1.1" 404 3505
+[2018-04-03 06:40:01,422] [WARNING] basehttp : "GET /favicon.ico HTTP/1.1" 404 3505
+[2018-04-03 06:40:06,845] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 200 1498
+[2018-04-03 06:40:06,845] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 200 1498
+[2018-04-03 06:40:15,825] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 200 1498
+[2018-04-03 06:40:15,825] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 200 1498
+[2018-04-03 06:40:25,221] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 302 0
+[2018-04-03 06:40:25,221] [INFO] basehttp : "POST /login_action/ HTTP/1.1" 302 0
+[2018-04-03 06:40:25,243] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 200 5667
+[2018-04-03 06:40:25,243] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 200 5667
+[2018-04-03 06:53:13,880] [INFO] basehttp : "GET /guest_manage/ HTTP/1.1" 200 4173
+[2018-04-03 06:53:13,880] [INFO] basehttp : "GET /guest_manage/ HTTP/1.1" 200 4173
+[2018-04-03 06:53:16,793] [INFO] basehttp : "GET /guest_manage/ HTTP/1.1" 200 4173
+[2018-04-03 06:53:16,793] [INFO] basehttp : "GET /guest_manage/ HTTP/1.1" 200 4173
+[2018-04-03 06:53:18,619] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 200 5667
+[2018-04-03 06:53:18,619] [INFO] basehttp : "GET /event_manage/ HTTP/1.1" 200 5667
+[2018-04-03 06:53:20,692] [INFO] basehttp : "GET /sign_index/1/ HTTP/1.1" 200 2779
+[2018-04-03 06:53:20,692] [INFO] basehttp : "GET /sign_index/1/ HTTP/1.1" 200 2779
+[2018-04-03 06:53:24,029] [INFO] basehttp : "GET /sign_index2/1/ HTTP/1.1" 200 1528
+[2018-04-03 06:53:24,029] [INFO] basehttp : "GET /sign_index2/1/ HTTP/1.1" 200 1528
+[2018-04-03 06:53:24,061] [WARNING] basehttp : "GET /static/js/conference_sign.js HTTP/1.1" 404 1676
+[2018-04-03 06:53:24,061] [WARNING] basehttp : "GET /static/js/conference_sign.js HTTP/1.1" 404 1676
+[2018-04-03 06:53:24,062] [WARNING] basehttp : "GET /static/js/jquery-1.10.2.min.js HTTP/1.1" 404 1682
+[2018-04-03 06:53:24,062] [WARNING] basehttp : "GET /static/js/jquery-1.10.2.min.js HTTP/1.1" 404 1682
+[2018-04-03 06:53:24,067] [WARNING] basehttp : "GET /static/css/draw_results.css HTTP/1.1" 404 1673
+[2018-04-03 06:53:24,067] [WARNING] basehttp : "GET /static/css/draw_results.css HTTP/1.1" 404 1673
+[2018-04-03 06:53:24,076] [WARNING] basehttp : "GET /static/js/jquery-1.10.2.min.js HTTP/1.1" 404 1682
+[2018-04-03 06:53:24,076] [WARNING] basehttp : "GET /static/js/jquery-1.10.2.min.js HTTP/1.1" 404 1682
+[2018-04-03 06:53:24,082] [WARNING] basehttp : "GET /static/js/conference_sign.js HTTP/1.1" 404 1676
+[2018-04-03 06:53:24,082] [WARNING] basehttp : "GET /static/js/conference_sign.js HTTP/1.1" 404 1676
+[2018-04-03 06:53:24,097] [WARNING] basehttp : "GET /static/image/favicon.ico HTTP/1.1" 404 1664
+[2018-04-03 06:53:24,097] [WARNING] basehttp : "GET /static/image/favicon.ico HTTP/1.1" 404 1664
